@@ -5,9 +5,9 @@
     <title>Title</title>
 </head>
 <body>
-    <ion-list >
-        <ion-item ng-repeat="item in items">
-            Offre {{item}}
+    <ion-list ng-controller="listJobController">
+        <ion-item ng-repeat="job in Jobs" ng-click="openPopoverJob($event) ">
+            Offre {{job}}
         </ion-item>
     </ion-list>
 </body>
