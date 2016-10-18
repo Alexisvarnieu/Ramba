@@ -36,5 +36,5 @@ angular.module('starter', ['ionic'])
                 templateUrl: 'templates/home.html',
 
             })
-        $urlRouterProvider.otherwise('/login');
+        $urlRouterProvider.otherwise('/home');
     });
