@@ -36,11 +36,5 @@ angular.module('starter', ['ionic'])
                 templateUrl: 'templates/home.html',
 
             })
-        $stateProvider
-            .state('signin', {
-                url: '/signin',
-                templateUrl: 'templates/signinViews.html',
-
-            })
         $urlRouterProvider.otherwise('/home');
     });
