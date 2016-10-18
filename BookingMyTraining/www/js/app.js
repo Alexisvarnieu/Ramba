@@ -30,11 +30,6 @@ angular.module('starter', ['ionic'])
                 templateUrl: 'templates/login.html',
         
             })
-        $stateProvider
-            .state('home', {
-                url: '/home',
-                templateUrl: 'templates/home.html',
-
-            })
-        $urlRouterProvider.otherwise('/home');
+           
+        $urlRouterProvider.otherwise('/login');
     });
