@@ -3,11 +3,11 @@
  */
 angular.module('starter.bmtController', ['ionic'])
 
-.controller('AppCtrl', function ($scope) {
-    
+.controller('AppCtrl', function () {
+
 })
 
-.controller('JobListController', function($scope) {
+.controller('JobListCtrl', function($scope) {
     $scope.jobs = [
         { title: 'Dev Web', id: 1},
         { title: 'Admin system', id: 2}

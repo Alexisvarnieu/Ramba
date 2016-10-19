@@ -1,5 +1,7 @@
-<ion-list ng-controller="listJobController">
-    <ion-item ng-repeat="job in Jobs" ng-click="openPopup($event) ">
-            Offre {{job}}
-    </ion-item>
-</ion-list>
+<ion-view view-title="Offres">
+    <ion-list ng-controller="JobListCtrl">
+        <ion-item ng-repeat="job in jobs">
+            {{job.title}}
+        </ion-item>
+    </ion-list>
+</ion-view>
