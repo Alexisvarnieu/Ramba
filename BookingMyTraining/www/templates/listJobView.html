@@ -1,14 +1,5 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    <ion-list ng-controller="listJobController">
-        <ion-item ng-repeat="job in Jobs" ng-click="openPopoverJob($event) ">
+<ion-list ng-controller="listJobController">
+    <ion-item ng-repeat="job in Jobs" ng-click="openPopup($event) ">
             Offre {{job}}
-        </ion-item>
-    </ion-list>
-</body>
-</html>
+    </ion-item>
+</ion-list>

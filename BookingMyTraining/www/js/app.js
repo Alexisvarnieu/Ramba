@@ -27,7 +27,7 @@ angular.module('starter', ['ionic'])
         $stateProvider
             .state('login', {
                 url: '/login',
-                templateUrl: 'templates/login.html',
+                templateUrl: 'templates/loginView.html',
         
             })
         $stateProvider
@@ -36,5 +36,15 @@ angular.module('starter', ['ionic'])
                 templateUrl: 'templates/homeView.html',
 
             })
-        $urlRouterProvider.otherwise('/home');
+        $stateProvider
+            .state('listJobView', {
+                url: '/listJobView',
+                templateUrl: 'templates/listJobView.html',
+            })
+        $stateProvider
+            .state('signin', {
+                url: '/signin',
+                templateUrl: 'templates/signinViews.html',
+            })
+        $urlRouterProvider.otherwise('/login');
     });
