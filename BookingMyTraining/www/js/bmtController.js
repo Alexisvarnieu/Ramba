@@ -1,7 +1,7 @@
 /**
  * Created by adrien on 19/10/2016.
  */
-angular.module('bmtApp', ['ionic'])
+angular.module('starter.bmtController', ['ionic'])
 
 .controller('AppCtrl', function ($scope) {
     
