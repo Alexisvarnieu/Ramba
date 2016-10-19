@@ -19,8 +19,9 @@ CREATE TABLE Etudiant(
         mail_etudiant      Varchar (25) NOT NULL ,
         login_etudiant     Varchar (25) NOT NULL ,
         mdp_etudiant       Varchar (255) NOT NULL ,
+        path_rqth          Varchar (255) NOT NULL ,
         PRIMARY KEY (id_etudiant )
-)ENGINE=InnoDB;
+)ENGINE=InnoDB; 
 
 
 #------------------------------------------------------------
@@ -28,9 +29,10 @@ CREATE TABLE Etudiant(
 #------------------------------------------------------------
 
 CREATE TABLE cv(
-        id_cv    int (11) Auto_increment  NOT NULL ,
-        titre_cv Varchar (25) NOT NULL ,
-        path_cv  Varchar (255) NOT NULL ,
+        id_cv       int (11) Auto_increment  NOT NULL ,
+        titre_cv    Varchar (25) NOT NULL ,
+        path_cv     Varchar (255) NOT NULL ,
+        id_etudiant Int NOT NULL ,
         PRIMARY KEY (id_cv )
 )ENGINE=InnoDB;
 
@@ -98,17 +100,6 @@ CREATE TABLE convention(
 
 
 #------------------------------------------------------------
-# Table: possede
-#------------------------------------------------------------
-
-CREATE TABLE possede(
-        id_etudiant Int NOT NULL ,
-        id_cv       Int NOT NULL ,
-        PRIMARY KEY (id_etudiant ,id_cv )
-)ENGINE=InnoDB;
-
-
-#------------------------------------------------------------
 # Table: maitrise
 #------------------------------------------------------------
 
@@ -143,12 +134,11 @@ CREATE TABLE commente(
         PRIMARY KEY (id_etudiant ,id_entreprise )
 )ENGINE=InnoDB;
 
+ALTER TABLE cv ADD CONSTRAINT FK_cv_id_etudiant FOREIGN KEY (id_etudiant) REFERENCES Etudiant(id_etudiant);
 ALTER TABLE offre ADD CONSTRAINT FK_offre_id_domaine FOREIGN KEY (id_domaine) REFERENCES domaine(id_domaine);
 ALTER TABLE offre ADD CONSTRAINT FK_offre_id_entreprise FOREIGN KEY (id_entreprise) REFERENCES entreprise(id_entreprise);
 ALTER TABLE convention ADD CONSTRAINT FK_convention_id_etudiant FOREIGN KEY (id_etudiant) REFERENCES Etudiant(id_etudiant);
 ALTER TABLE convention ADD CONSTRAINT FK_convention_id_entreprise FOREIGN KEY (id_entreprise) REFERENCES entreprise(id_entreprise);
-ALTER TABLE possede ADD CONSTRAINT FK_possede_id_etudiant FOREIGN KEY (id_etudiant) REFERENCES Etudiant(id_etudiant);
-ALTER TABLE possede ADD CONSTRAINT FK_possede_id_cv FOREIGN KEY (id_cv) REFERENCES cv(id_cv);
 ALTER TABLE maitrise ADD CONSTRAINT FK_maitrise_id_etudiant FOREIGN KEY (id_etudiant) REFERENCES Etudiant(id_etudiant);
 ALTER TABLE maitrise ADD CONSTRAINT FK_maitrise_id_domaine FOREIGN KEY (id_domaine) REFERENCES domaine(id_domaine);
 ALTER TABLE candidate ADD CONSTRAINT FK_candidate_id_offre FOREIGN KEY (id_offre) REFERENCES offre(id_offre);
