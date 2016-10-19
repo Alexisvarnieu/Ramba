@@ -21,7 +21,7 @@ CREATE TABLE Etudiant(
         mdp_etudiant       Varchar (255) NOT NULL ,
         path_rqth          Varchar (255) NOT NULL ,
         PRIMARY KEY (id_etudiant )
-)ENGINE=InnoDB; 
+)ENGINE=InnoDB;
 
 
 #------------------------------------------------------------
