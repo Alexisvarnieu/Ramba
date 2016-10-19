@@ -47,5 +47,10 @@ angular.module('starter', ['ionic', 'starter.bmtController'])
                 url: '/signin',
                 templateUrl: 'templates/signinViews.html',
             })
+        $stateProvider
+            .state('test', {
+                url: '/test',
+                templateUrl: 'templates/test.html',
+            })
         $urlRouterProvider.otherwise('/login');
     });
