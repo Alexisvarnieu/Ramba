@@ -43,10 +43,10 @@ angular.module('starter.bmtController', ['ionic'])
             ];
         } else {
             $scope.lesChoix = [
-                {title: 'Login', id: 1, url: 'login'},
-                {title: 'Sign In', id: 2, url: 'signin'},
-                {title: 'List', id: 3, url: 'listJobView'},
-                {title: 'Home', id: 4, url: 'home'}
+                {title: 'Accueil', id: 4, url: 'home'},
+                {title: 'Connexion', id: 1, url: 'login'},
+                {title: 'Inscription', id: 2, url: 'signin'},
+                {title: 'Liste des offres', id: 3, url: 'listJobView'}
 
             ];
         }
