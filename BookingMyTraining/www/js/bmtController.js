@@ -1,7 +1,7 @@
 /**
  * Created by adrien on 19/10/2016.
  */
-angular.module('starter.bmtController','backand', ['ionic'])
+angular.module('starter.bmtController', ['ionic'])
 
 .controller('AppCtrl', function () {
 
@@ -14,11 +14,11 @@ angular.module('starter.bmtController','backand', ['ionic'])
     ];
 })
 
-.controller('IndexCtrl', function($scope,$ionicLoading,$ionicHistory,$timeout,$state) {
+.controller('IndexCtrl', function($scope) {
         if (localStorage.getItem("session") == 1) {
             $scope.lesChoix = [
                 {title: 'Home', id: 6, url: 'home'},
-                {title: 'Logout', id: 1, url: 'login',fct:'logout()'},
+                {title: 'Logout', id: 1, url: 'login',fct:'logout'},
                 {title: 'List', id: 3, url: 'listJobView'},
                 {title: 'Profil', id: 4, url: 'home'},
                 {title: 'Mes offres', id: 5, url: 'home'}
@@ -37,10 +37,9 @@ angular.module('starter.bmtController','backand', ['ionic'])
         $scope.logout = function () {
             $ionicLoading.show({
                 template: 'Logging out....'
+            });
+            $localstorage.setItem('session', '');
 
-
-        });
-            localStorage.setItem('session', '');
             $timeout(function () {
                 $ionicLoading.hide();
                 $ionicHistory.clearCache();
@@ -49,7 +48,7 @@ angular.module('starter.bmtController','backand', ['ionic'])
                     disableBack: true,
                     historyRoot: true
                 });
-                $state.go('home', {reload: true});
+                $state.go('home');
             }, 5);
 
         };
@@ -77,6 +76,12 @@ angular.module('starter.bmtController','backand', ['ionic'])
 
 
         }
+
+
+
+
+
+
 
 
 });
