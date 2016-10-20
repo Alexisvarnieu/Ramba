@@ -97,4 +97,5 @@ angular.module('starter', ['ionic', 'starter.bmtController','backand'])
                 templateUrl: 'templates/test.html',
             })
         $urlRouterProvider.otherwise('/login');
+        
     });

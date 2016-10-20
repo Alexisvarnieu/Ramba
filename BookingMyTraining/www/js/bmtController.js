@@ -7,12 +7,30 @@ angular.module('starter.bmtController', ['ionic'])
 
 })
 
-.controller('JobListCtrl', function($scope,offreService) {
-        offreService.getOffre().then(function (result) {
-                    $scope.jobs = result.data.data;
-                    console.log($scope.jobs);
-                });
+.controller('JobListCtrl', function($scope,offreService,$ionicModal) {
+    offreService.getOffre().then(function (result) {
+         $scope.jobs = result.data.data;
+        console.log($scope.jobs);
+    });
+    $ionicModal.fromTemplateUrl('templates/jobView.html', {
+    scope: $scope,
+    animation: 'mh-slide'
+    }).then(function(modal) {
+    $scope.modal = modal;
+    });
+    $scope.openModal = function() {
+    $scope.modal.show();
+    };
+    $scope.closeModal = function() {
+    $scope.modal.hide();
+    };
+
+    $scope.$on('$destroy', function() {
+    $scope.modal.remove();
+    });
 })
+
+
 
 .controller('IndexCtrl', function($scope) {
         if (localStorage.getItem("session") == 1) {
