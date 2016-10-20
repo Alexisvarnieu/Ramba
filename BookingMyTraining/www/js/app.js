@@ -57,9 +57,9 @@ angular.module('starter', ['ionic', 'starter.bmtController','backand'])
         };
 
         return {
-            getEntreprise: getEntreprise,
-            addEntreprise: addEntreprise,
-            deleteEntreprise: deleteEntreprise
+            getOffre: getOffre,
+            addOffre: addOffre,
+            deleteOffre: deleteOffre
         }
     })
 

@@ -7,11 +7,11 @@ angular.module('starter.bmtController', ['ionic'])
 
 })
 
-.controller('JobListCtrl', function($scope) {
-    $scope.jobs = [
-        { title: 'Dev Web', id: 1},
-        { title: 'Admin system', id: 2}
-    ];
+.controller('JobListCtrl', function($scope,offreService) {
+        offreService.getOffre().then(function (result) {
+                    $scope.jobs = result.data.data;
+                    console.log($scope.jobs);
+                });
 })
 
 .controller('IndexCtrl', function($scope) {
