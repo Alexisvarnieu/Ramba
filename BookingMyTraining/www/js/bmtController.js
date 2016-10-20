@@ -3,15 +3,32 @@
  */
 angular.module('starter.bmtController', ['ionic'])
 
-.controller('AppCtrl', function () {
+.controller('AppCtrl', function() {
 
 })
 
-.controller('JobListCtrl', function($scope) {
+.controller('JobListCtrl', function($scope, $ionicModal) {
     $scope.jobs = [
         { title: 'Dev Web', id: 1},
         { title: 'Admin system', id: 2}
     ];
+    $ionicModal.fromTemplateUrl('templates/jobView.html', {
+        scope: $scope,
+        animation: 'mh-slide'
+    }).then(function(modal) {
+        $scope.modal = modal;
+    });
+    $scope.openModal = function() {
+        $scope.modal.show();
+    };
+    $scope.closeModal = function() {
+        $scope.modal.hide();
+    };
+
+    $scope.$on('$destroy', function() {
+        $scope.modal.remove();
+    });
+
 })
 
 .controller('IndexCtrl', function($scope) {
@@ -54,34 +71,20 @@ angular.module('starter.bmtController', ['ionic'])
         };
     })
 
-        .controller('LoginCtrl', function($scope,$state) {
+    .controller('LoginCtrl', function($scope,$state) {
 
         $scope.data = {};
 
         $scope.login = function() {
-
-
             if ($scope.data.username=="lol" && $scope.data.password=="ptdr")
             {
                 console.log("LOGIN user: " + $scope.data.username + " - PW: " + $scope.data.password);
                 localStorage.setItem("session",1);
 
                 $state.go('listJobView', {reload: true});
-
             }else
             {
                 console.log("LOGIN incorrect");
-
             }
-
-
         }
-
-
-
-
-
-
-
-
 });
