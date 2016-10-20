@@ -3,7 +3,10 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('starter', ['ionic', 'starter.bmtController'])
+angular.module('starter', ['ionic', 'starter.bmtController','backand'])
+
+
+
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -22,6 +25,45 @@ angular.module('starter', ['ionic', 'starter.bmtController'])
     }
   });
 })
+
+    .config(function (BackandProvider) {
+        BackandProvider.setAppName('ramba');
+        BackandProvider.setSignUpToken('90553cf6-5882-48f9-8f77-b9ad14619939');
+        BackandProvider.setAnonymousToken('35ac4efb-f0bd-4a5b-89cf-125bcfa1fb05');
+    })
+
+    .service('offreService', function ($http, Backand) {
+        var baseUrl = '/1/objects/';
+        var objectName = 'offre/';
+
+        function getUrl() {
+            return Backand.getApiUrl() + baseUrl + objectName;
+        }
+
+        function getUrlForId(id) {
+            return getUrl() + id;
+        }
+
+        getOffre = function () {
+            return $http.get(getUrl());
+        };
+
+        addOffre = function(offre) {
+            return $http.post(getUrl(), offre);
+        }
+
+        deleteOffre = function (id) {
+            return $http.delete(getUrlForId(id));
+        };
+
+        return {
+            getEntreprise: getEntreprise,
+            addEntreprise: addEntreprise,
+            deleteEntreprise: deleteEntreprise
+        }
+    })
+
+
 
 .config(function($stateProvider, $urlRouterProvider) {
         $stateProvider
