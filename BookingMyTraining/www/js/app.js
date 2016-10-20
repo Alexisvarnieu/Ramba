@@ -28,12 +28,14 @@ angular.module('starter', ['ionic', 'starter.bmtController'])
             .state('login', {
                 url: '/login',
                 templateUrl: 'templates/loginView.html',
+                controller:'LoginCtrl'
         
             })
         $stateProvider
             .state('home', {
                 url: '/home',
                 templateUrl: 'templates/homeView.html',
+                contoller:'IndexCtrl'
 
             })
         $stateProvider
